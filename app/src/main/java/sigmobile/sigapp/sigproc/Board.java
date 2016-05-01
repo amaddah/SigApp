@@ -1,6 +1,12 @@
 package sigmobile.sigapp.sigproc;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -11,8 +17,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import org.achartengine.ChartFactory;
-import org.achartengine.chart.BarChart;
 import org.achartengine.model.CategorySeries;
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.renderer.SimpleSeriesRenderer;
@@ -51,11 +55,14 @@ public class Board extends AppCompatActivity {
             assert l != null;
             l.setVisibility(View.VISIBLE);
         }
+
+        //createNotification("Salut", "lalalal");
+
         // 1 seul graphique est affiché sinon (RSSI/temps)
-        XYMultipleSeriesRenderer renderer = getTruitonBarRenderer();
-        myChartSettings(renderer);
-        Intent intent = ChartFactory.getBarChartIntent(this, getTruitonBarDataset(), renderer, BarChart.Type.DEFAULT);
-        //startActivity(intent);
+//        XYMultipleSeriesRenderer renderer = getTruitonBarRenderer();
+//        myChartSettings(renderer);
+//        Intent intent = ChartFactory.getBarChartIntent(this, getTruitonBarDataset(), renderer, BarChart.Type.DEFAULT);
+//        startActivity(intent);
     }
 
     private XYMultipleSeriesDataset getTruitonBarDataset() {
@@ -108,5 +115,31 @@ public class Board extends AppCompatActivity {
         renderer.setShowGrid(true);
         renderer.setGridColor(Color.GRAY);
         renderer.setXLabels(0); // sets the number of integer labels to appear
+    }
+
+    public void createNotification(String t, String m) {
+        Intent notificationIntent = new Intent(this, NotificationView.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this,
+                1, notificationIntent,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+
+        NotificationManager nm = (NotificationManager) this
+                .getSystemService(Context.NOTIFICATION_SERVICE);
+
+        Resources res = this.getResources();
+        Notification.Builder builder = new Notification.Builder(this);
+
+        builder.setContentIntent(contentIntent)
+                .setSmallIcon(R.drawable.sigfox)
+                .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.sigfox))
+                .setTicker("ticker")
+                .setWhen(System.currentTimeMillis())
+                .setAutoCancel(true)
+                .setContentTitle(t)
+                .setContentText(m);
+        Notification n = builder.build();
+
+        nm.notify(1,n);
+
     }
 }

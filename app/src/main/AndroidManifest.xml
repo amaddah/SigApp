@@ -33,7 +33,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="sigmobile.sigapp.sigproc.Balise" />
         </activity>
-        <activity android:name=".Fin"></activity>
+        <activity android:name=".Fin" />
+        <activity android:name=".sigproc.NotificationView"></activity>
     </application>
 
 </manifest>
