@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SigApp</string>
+    <string name="logo">Logo</string>
+    <string name="prenom">Votre prénom</string>
+    <string name="nom">Votre nom</string>
+    <string name="societe">Votre société</string>
+    <string name="baliseNom">Nom de la balise à gerer</string>
+    <string name="email">Votre e-mail</string>
+    <string name="pass">Votre mot de passe</string>
+    <string name="Actualiser">Actualiser</string>
+    <string name="balise">Changer de balise</string>
+    <string name="quitter">Quitter</string>
+    <string name="bienvenue_sur_sigmobile">Bienvenue sur sigMobile</string>
+    <string name="je_souhaite_tre_inform_par_mail">Je souhaite être informé par mail.</string>
+    <string name="ok">Ok</string>
+    <string name="choisissez_la_balise_g_rer">Choisissez la balise à gérer.</string>
+    <string-array name="balises">
+        <item>Balise 1</item>
+        <item>Balise 2</item>
+        <item>Balise 3</item>
+    </string-array>
+    <string name="title_activity_board">Board</string>
+    <string name="test1">test1</string>
+    <string name="mdp1"><![CDATA[test&]]></string>
+    <string name="societe1">societe1</string>
+</resources>
