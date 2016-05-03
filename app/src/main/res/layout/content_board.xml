@@ -20,17 +20,20 @@
             android:layout_width="fill_parent"
             android:visibility="gone">
             <!-- Partie Admin -->
-            <TextView
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/admichart"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:text="New Text"
-                android:id="@+id/textView2" />
+                android:layout_height="300dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_weight="1"
             android:layout_height="fill_parent"
             android:layout_width="fill_parent">
             <!-- Partie User -->
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/techart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

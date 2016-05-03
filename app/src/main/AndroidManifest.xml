@@ -34,7 +34,16 @@
                 android:value="sigmobile.sigapp.sigproc.Balise" />
         </activity>
         <activity android:name=".Fin" />
-        <activity android:name=".sigproc.NotificationView"></activity>
+        <activity android:name=".sigproc.NotificationView" />
+        <activity
+            android:name=".sigproc.Messages"
+            android:label="@string/title_activity_messages"
+            android:parentActivityName=".sigproc.Board"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="sigmobile.sigapp.sigproc.Board" />
+        </activity>
     </application>
 
 </manifest>

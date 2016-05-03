@@ -24,4 +24,14 @@
     <string name="test1">test1</string>
     <string name="mdp1"><![CDATA[test&]]></string>
     <string name="societe1">societe1</string>
+    <string name="title_activity_messages">Messages</string>
+    <string name="bname">Nom balise</string>
+    <string name="dname">Trame</string>
+    <string name="aname">Action</string>
+    <string name="mod">Modifier</string>
+    <string name="Suppr">Supprimer</string>
+    <string name="_005">005</string>
+    <string name="_1">1</string>
+    <string name="did">Id de la donnée</string>
+    <string name="id1">id1</string>
 </resources>

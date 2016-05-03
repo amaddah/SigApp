@@ -7,29 +7,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import org.achartengine.model.CategorySeries;
-import org.achartengine.model.XYMultipleSeriesDataset;
-import org.achartengine.renderer.SimpleSeriesRenderer;
-import org.achartengine.renderer.XYMultipleSeriesRenderer;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
-import java.util.Random;
 
+import sigmobile.sigapp.Inscription;
 import sigmobile.sigapp.R;
 
 
-public class Board extends AppCompatActivity {
-    private static final int SERIES_NR = 2;
+public class Board extends AppCompatActivity implements View.OnClickListener {
+    final private int MAX_POINTS_DISPLAYED = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +36,10 @@ public class Board extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        assert fab != null;
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        FloatingActionButton quit = (FloatingActionButton) findViewById(R.id.quit);
+        assert quit != null;
+        quit.setOnClickListener(this);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         LinearLayout l = (LinearLayout) findViewById(R.id.admin);
         if(Balise.droit.equals("Admin") || Balise.droit.equals("Superadmin") ) {
@@ -56,65 +48,21 @@ public class Board extends AppCompatActivity {
             l.setVisibility(View.VISIBLE);
         }
 
+        if(Balise.droit.equals("Superadmin")){
+            // Si superadmin, on affiche le bouton pr les messages
+            FloatingActionButton msg = (FloatingActionButton) findViewById(R.id.msg);
+            assert msg != null;
+            msg.setVisibility(View.VISIBLE);
+            msg.setOnClickListener(this);
+        }
+
         //createNotification("Salut", "lalalal");
 
-        // 1 seul graphique est affiché sinon (RSSI/temps)
-//        XYMultipleSeriesRenderer renderer = getTruitonBarRenderer();
-//        myChartSettings(renderer);
-//        Intent intent = ChartFactory.getBarChartIntent(this, getTruitonBarDataset(), renderer, BarChart.Type.DEFAULT);
-//        startActivity(intent);
-    }
-
-    private XYMultipleSeriesDataset getTruitonBarDataset() {
-        XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
-        final int nr = 4;
-        Random r = new Random();
-        ArrayList<String> legendTitles = new ArrayList<String>();
-        legendTitles.add("Sales");
-        legendTitles.add("Expenses");
-        for (int i = 0; i < SERIES_NR; i++) {
-            CategorySeries series = new CategorySeries(legendTitles.get(i));
-            for (int k = 0; k < nr; k++) {
-                series.add(100 + r.nextInt() % 100);
-            }
-            dataset.addSeries(series.toXYSeries());
-        }
-        return dataset;
-    }
-
-    public XYMultipleSeriesRenderer getTruitonBarRenderer() {
-        XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
-        renderer.setAxisTitleTextSize(16);
-        renderer.setChartTitleTextSize(20);
-        renderer.setLabelsTextSize(15);
-        renderer.setLegendTextSize(15);
-        renderer.setMargins(new int[] { 30, 40, 15, 0 });
-        SimpleSeriesRenderer r = new SimpleSeriesRenderer();
-        r.setColor(Color.BLUE);
-        renderer.addSeriesRenderer(r);
-        r = new SimpleSeriesRenderer();
-        r.setColor(Color.RED);
-        renderer.addSeriesRenderer(r);
-        return renderer;
-    }
-
-    private void myChartSettings(XYMultipleSeriesRenderer renderer) {
-        renderer.setChartTitle("Truiton's Performance by AChartEngine BarChart");
-        renderer.setXAxisMin(0.5);
-        renderer.setXAxisMax(10.5);
-        renderer.setYAxisMin(0);
-        renderer.setYAxisMax(210);
-        renderer.addXTextLabel(1, "2010");
-        renderer.addXTextLabel(2, "2011");
-        renderer.addXTextLabel(3, "2012");
-        renderer.addXTextLabel(4, "2013");
-        renderer.setYLabelsAlign(Paint.Align.RIGHT);
-        renderer.setBarSpacing(0.5);
-        renderer.setXTitle("Years");
-        renderer.setYTitle("Performance");
-        renderer.setShowGrid(true);
-        renderer.setGridColor(Color.GRAY);
-        renderer.setXLabels(0); // sets the number of integer labels to appear
+        String[] titles = {"Graphique du voltage de la balise.", "Graphique du signal de la balise."};
+        // Superadmin/admin surveillence de l'état du voltage de la balise
+        setLineChart(R.id.admichart, titles[0], Balise.volts);
+        // 1 seul graphique (celui ci-bas) est affiché si technicien (RSSI/temps)
+        setLineChart(R.id.techart, titles[1], Balise.rssis);
     }
 
     public void createNotification(String t, String m) {
@@ -140,6 +88,60 @@ public class Board extends AppCompatActivity {
         Notification n = builder.build();
 
         nm.notify(1,n);
+    }
 
+    private LineDataSet addEntries(ArrayList<Float> tab){
+        ArrayList<Entry> entries = new ArrayList<>();
+        entries.clear();
+        for(int i=0;i<tab.size();i++) {
+            entries.add(new Entry(tab.get(i), i));
+        }
+
+        return new LineDataSet(entries, "");
+    }
+
+    private ArrayList<String> addLabels(ArrayList<String> tab){
+        ArrayList<String> labels = new ArrayList<>();
+        labels.clear();
+        for(String s : tab)
+            labels.add(s);
+        return labels;
+    }
+
+    private void setLineChart(int id, String title, ArrayList<Float> tab){
+        ArrayList<String> lab = new ArrayList<>();
+        lab.clear();
+        lab = addLabels(Balise.times);
+
+        LineDataSet dataset = new LineDataSet(null, null);
+        dataset.clear();
+        dataset = addEntries(tab);
+
+        dataset.setColors(ColorTemplate.COLORFUL_COLORS);
+
+        LineData data = new LineData(lab, dataset);
+
+        LineChart chart = (LineChart) findViewById(id);
+        assert chart != null;
+        chart.setData(data);
+        chart.setDescription(title);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.msg:
+                Intent messages = new Intent(Board.this, Messages.class);
+                startActivity(messages);
+                finish();
+                break;
+            case R.id.quit:
+                Intent intent = new Intent(getApplicationContext(), Inscription.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("EXIT", true);
+                startActivity(intent);
+                finish();
+                break;
+        }
     }
 }

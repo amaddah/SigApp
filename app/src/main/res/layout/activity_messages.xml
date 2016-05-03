@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="sigmobile.sigapp.sigproc.Board">
+    tools:context="sigmobile.sigapp.sigproc.Messages">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,23 +21,16 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_board" />
+    <include layout="@layout/content_messages" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/msg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email"
-        android:visibility="gone"/>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/info"
+        android:id="@+id/balise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_info" />
+        android:src="@android:drawable/ic_menu_always_landscape_portrait" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/quit"
         android:layout_width="wrap_content"

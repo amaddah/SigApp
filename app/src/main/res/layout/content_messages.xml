@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="sigmobile.sigapp.sigproc.Messages"
+    tools:showIn="@layout/activity_messages">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/cellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/did"
+                android:textColor="#ffffff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/cellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/dname"
+                android:textColor="#ffffff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/cellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/aname"
+                android:textColor="#ffffff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl1_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl1_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl1_mod"
+                    android:layout_toEndOf="@+id/d_rl1_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl2_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl2_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl2_mod"
+                    android:layout_toEndOf="@+id/d_rl2_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl3_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl3_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl3_mod"
+                    android:layout_toEndOf="@+id/d_rl3_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl4_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl4_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl4_mod"
+                    android:layout_toEndOf="@+id/d_rl4_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl5_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl5_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl5_mod"
+                    android:layout_toEndOf="@+id/d_rl5_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl6_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl6_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl6_mod"
+                    android:layout_toEndOf="@+id/d_rl6_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl7_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl7_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl7_mod"
+                    android:layout_toEndOf="@+id/d_rl7_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl8_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl8_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl8_mod"
+                    android:layout_toEndOf="@+id/d_rl8_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl9_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl9_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl9_mod"
+                    android:layout_toEndOf="@+id/d_rl9_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tr10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/d_id10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/id1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/d_trame10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/valuecellborder"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:text="@string/_005"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+            <RelativeLayout
+                android:id="@+id/d_rl10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="6dp"
+                android:textColor="#ffffff"
+                android:textSize="12sp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/mod"
+                    android:layout_gravity="left"
+                    android:id="@+id/d_rl10_mod"
+                    android:layout_marginTop="@dimen/space" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/Suppr"
+                    android:layout_gravity="right"
+                    android:id="@+id/d_rl10_suppr"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/d_rl10_mod"
+                    android:layout_toEndOf="@+id/d_rl10_mod" />
+            </RelativeLayout>
+            <!-- </LinearLayout> -->
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

@@ -1,13 +1,9 @@
 package sigmobile.sigapp;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import sigmobile.sigapp.signet.Client;
-import sigmobile.sigapp.signet.Server;
-import sigmobile.sigapp.sigproc.*;
 
 public class Demarrage extends AppCompatActivity {
 

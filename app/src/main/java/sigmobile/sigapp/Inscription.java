@@ -36,11 +36,15 @@ public class Inscription extends AppCompatActivity implements CompoundButton.OnC
     static public String sepc = "+";
     static public String seps = ";";
     static public String sepb = ",";
-    static public String sepd = ":";
+    static public String sepd = "&";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); // permettre envoi/recep par socket perso
         StrictMode.setThreadPolicy(policy);
@@ -154,7 +158,6 @@ public class Inscription extends AppCompatActivity implements CompoundButton.OnC
                 Intent i = new Intent(this, Balise.class);
                 startActivity(i);
                 finish();
-
         }
 
     }
