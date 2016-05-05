@@ -10,9 +10,11 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -27,7 +29,7 @@ import sigmobile.sigapp.R;
 
 
 public class Board extends AppCompatActivity implements View.OnClickListener {
-    final private int MAX_POINTS_DISPLAYED = 10;
+    final private int MAX_POINTS_DISPLAYED = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,16 +58,24 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
             msg.setOnClickListener(this);
         }
 
-        //createNotification("Salut", "lalalal");
+        TextView droit = (TextView) findViewById(R.id.textBoard);
+        assert droit != null;
+        droit.setText(Balise.droit);
+
+        createNotification("Probleme", "Ceci est un exemple de notification", "Alerte");
 
         String[] titles = {"Graphique du voltage de la balise.", "Graphique du signal de la balise."};
-        // Superadmin/admin surveillence de l'état du voltage de la balise
-        setLineChart(R.id.admichart, titles[0], Balise.volts);
+
+        if(Balise.droit.equals("Admin") || Balise.droit.equals("Superadmin") ) {
+            // Superadmin/admin surveillence de l'état du voltage de la balise
+            setLineChart(R.id.admichart, titles[0], Balise.volts);
+        }
+
         // 1 seul graphique (celui ci-bas) est affiché si technicien (RSSI/temps)
         setLineChart(R.id.techart, titles[1], Balise.rssis);
     }
 
-    public void createNotification(String t, String m) {
+    public void createNotification(String t, String m, String ticker) {
         Intent notificationIntent = new Intent(this, NotificationView.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this,
                 1, notificationIntent,
@@ -75,25 +85,35 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                 .getSystemService(Context.NOTIFICATION_SERVICE);
 
         Resources res = this.getResources();
-        Notification.Builder builder = new Notification.Builder(this);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
         builder.setContentIntent(contentIntent)
                 .setSmallIcon(R.drawable.sigfox)
                 .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.sigfox))
-                .setTicker("ticker")
                 .setWhen(System.currentTimeMillis())
                 .setAutoCancel(true)
+                .setTicker(ticker)
                 .setContentTitle(t)
                 .setContentText(m);
-        Notification n = builder.build();
 
-        nm.notify(1,n);
+        // Tablettes sans vibration
+                try {
+                    builder.setDefaults(Notification.DEFAULT_VIBRATE);
+                    Notification n = builder.build();
+                    nm.notify(1,n);
+                }
+                catch (Exception e){
+                    builder.setDefaults(Notification.DEFAULT_SOUND);
+                    Notification n = builder.build();
+                    nm.notify(1,n);
+                }
+
     }
 
     private LineDataSet addEntries(ArrayList<Float> tab){
         ArrayList<Entry> entries = new ArrayList<>();
         entries.clear();
-        for(int i=0;i<tab.size();i++) {
+        for(int i=0;i<MAX_POINTS_DISPLAYED;i++) {
             entries.add(new Entry(tab.get(i), i));
         }
 
@@ -103,8 +123,9 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
     private ArrayList<String> addLabels(ArrayList<String> tab){
         ArrayList<String> labels = new ArrayList<>();
         labels.clear();
-        for(String s : tab)
-            labels.add(s);
+        for(int i=0;i<MAX_POINTS_DISPLAYED;i++) {
+            labels.add(tab.get(i));
+        }
         return labels;
     }
 
