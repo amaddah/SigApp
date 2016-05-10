@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -88,17 +87,17 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
         builder.setContentIntent(contentIntent)
-                .setSmallIcon(R.drawable.sigfox)
-                .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.sigfox))
-                .setWhen(System.currentTimeMillis())
+                //.setSmallIcon(R.drawable.sigfox)
+                //.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.sigfox))
+                //.setWhen(System.currentTimeMillis())
                 .setAutoCancel(true)
-                .setTicker(ticker)
+                //.setTicker(ticker)
                 .setContentTitle(t)
                 .setContentText(m);
 
         // Tablettes sans vibration
                 try {
-                    builder.setDefaults(Notification.DEFAULT_VIBRATE);
+                    builder.setDefaults(Notification.DEFAULT_ALL);
                     Notification n = builder.build();
                     nm.notify(1,n);
                 }

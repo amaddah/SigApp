@@ -4,11 +4,8 @@ package sigmobile.sigapp.signet;
  * Created by amaddah on 29/04/16.
  */
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 
 import sigmobile.sigapp.Inscription;
 
@@ -57,14 +54,7 @@ public class Server {
         return response.trim();
     }
 
-    public String createMsg(String nom, String societe, String mdp, Boolean withEmail, String email) {
-        if (withEmail)
-            return nom + this.getSep() + societe + this.getSep() + mdp + this.getSep() + email;
-        else
-            return nom + this.getSep() + societe + this.getSep() + mdp;
-    }
-
-    public String createMsg(String token, String balise) {
-        return token + this.getSep() + balise;
+    public String createMsg(String t, String p) {
+            return t + this.getSep() + p;
     }
 }

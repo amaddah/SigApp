@@ -24,43 +24,6 @@
         android:id="@+id/errors"
         android:layout_marginTop="@dimen/spaceStart"/>
 
-    <!-- Affichage du prenom -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/prenom" android:hint="@string/prenom"
-        android:layout_below="@+id/errors"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/spaceStart"
-        android:text="@string/test1" />
-
-
-    <!-- Affichage du nom -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/nom" android:hint="@string/nom"
-        android:layout_below="@+id/prenom"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/space"
-        android:text="@string/test1" />
-
-    <!-- Switch du e-mail-->
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/je_souhaite_tre_inform_par_mail"
-        android:id="@+id/emailVerif"
-        android:layout_below="@+id/nom"
-        android:checked="false"
-        android:layout_marginTop="@dimen/space" />
-
     <!-- Affichage du e-mail-->
     <EditText
         android:layout_width="match_parent"
@@ -68,33 +31,20 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/email" android:hint="@string/email"
-        android:layout_below="@+id/emailVerif"
+        android:layout_below="@+id/errors"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="@dimen/space"
-        android:visibility="gone"/>
+        android:text="djalila.salemkour@insa-cvl.fr" />
 
-    <!-- Affichage de la société-->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/societe" android:hint="@string/societe"
-        android:layout_below="@+id/email"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/space"
-        android:text="@string/societe1" />
-
-    <!-- Affichage du nom -->
+    <!-- Affichage du pass -->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/pass" android:hint="@string/pass"
-        android:layout_below="@+id/societe"
+        android:layout_below="@+id/email"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="@dimen/space"

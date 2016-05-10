@@ -1,15 +1,14 @@
 package sigmobile.sigapp;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -51,11 +50,8 @@ public class Inscription extends AppCompatActivity implements CompoundButton.OnC
 
         setContentView(R.layout.activity_inscription);
 
-        Switch emailVerif = (Switch) findViewById(R.id.emailVerif);
         Button ok = (Button) findViewById(R.id.ok);
 
-        assert emailVerif != null;
-        emailVerif.setOnCheckedChangeListener(this);
         assert ok != null;
         ok.setOnClickListener(this);
     }
@@ -87,34 +83,17 @@ public class Inscription extends AppCompatActivity implements CompoundButton.OnC
                 TextView t = (TextView) findViewById(R.id.errors);
 
                 String r;
-
-                prenom = (EditText) findViewById(R.id.prenom);
-                nom = (EditText) findViewById(R.id.nom);
                 email = (EditText) findViewById(R.id.email);
-                societe = (EditText) findViewById(R.id.societe);
                 _pass = (EditText) findViewById(R.id.pass);
 
                 // Recuperation des entrées de l'utilisateur
                 assert t != null;
                 t.clearComposingText(); // On supprime toutes les anciens alertes
-                assert prenom != null;
-                s_prenom = prenom.getText().toString();
-                if (!verifyString(s_prenom)) {
-                    t.append("Prenom manquant\n");
-                    break;
-                }
 
-                assert nom != null;
-                s_nom = nom.getText().toString();
-                if (!verifyString(s_nom)) {
-                    t.append("Nom manquant\n");
-                    break;
-                }
-
-                assert societe != null;
-                s_societe = societe.getText().toString();
-                if (!verifyString(s_societe)) {
-                    t.append("Societe manquante\n");
+                assert email != null;
+                s_email = email.getText().toString();
+                if(!verifyString(s_email)){
+                    t.append("Email manquant\n");
                     break;
                 }
 
@@ -127,18 +106,8 @@ public class Inscription extends AppCompatActivity implements CompoundButton.OnC
                     h_pass = md5Sum(s_pass);
                 }
 
-                // Vérification pour le mail
-                if(withEmail) {
-                    // Si l'utilisateur desire fournir son mail
-                    assert email != null;
-                    s_email = email.getText().toString();
-                    if(!verifyString(s_email)){
-                        t.append("Email manquant\n");
-                        break;
-                    }
-                }
                 int type=1;
-                Inscription.sent = Inscription.server.createMsg(s_nom, s_societe, h_pass, false, ""); // Create du paquet
+                Inscription.sent = Inscription.server.createMsg(s_email, h_pass); // Create du paquet
                 Inscription.cl = Inscription.socketOpen(); // Nouvelle socket udp
                 Inscription.received = Inscription.sendAndReceiveMessage(type); // Envoi/reception data de type inscription
 
