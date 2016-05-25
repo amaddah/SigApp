@@ -15,7 +15,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/bienvenue_sur_sigmobile"
-        android:id="@+id/bienvenue"/>
+        android:id="@+id/bienvenue" />
 
     <!-- Texte d'affichage des erreurs lors de l'inscription -->
     <TextView
@@ -31,11 +31,11 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/email" android:hint="@string/email"
-        android:layout_below="@+id/errors"
+        android:text="djalila.salemkour@insa-cvl.fr"
+        android:layout_below="@+id/bienvenue"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/space"
-        android:text="djalila.salemkour@insa-cvl.fr" />
+        android:layout_marginTop="65dp" />
 
     <!-- Affichage du pass -->
     <EditText

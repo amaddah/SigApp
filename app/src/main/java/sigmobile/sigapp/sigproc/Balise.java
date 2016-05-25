@@ -20,7 +20,7 @@ import sigmobile.sigapp.Inscription;
 import sigmobile.sigapp.R;
 
 public class Balise extends Activity implements OnClickListener {
-
+    static public String balise;
     private Spinner spinner2;
     private Button btnSubmit;
     private FloatingActionButton quit;
@@ -76,6 +76,7 @@ public class Balise extends Activity implements OnClickListener {
             case R.id.btnSubmit:
                 int type = 2;
                 String bal = String.valueOf(spinner2.getSelectedItem());
+                balise = bal;
                 Inscription.sent = Inscription.server.createMsg(Inscription.token, bal); // Create du paquet
                 Inscription.received = Inscription.sendAndReceiveMessage(type); // Envoi/reception data de type getData
                 // data receive
@@ -99,7 +100,7 @@ public class Balise extends Activity implements OnClickListener {
                     } else {
                         for (int i = 0; i < bs.length; i++) {
                             // Maj des datas
-                            if (droit.equals("Superadmin") || droit.equals("admin")) {
+                            if (droit.equals("Superadmin") || droit.equals("Admin")) {
                                 String[] str = bs[i].split(Inscription.sepd);
                                 String[] d = str[2].split(" ");
                                 String day = d[0];

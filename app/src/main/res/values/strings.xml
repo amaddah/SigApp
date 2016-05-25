@@ -11,7 +11,11 @@
     <string name="Actualiser">Actualiser</string>
     <string name="balise">Changer de balise</string>
     <string name="quitter">Quitter</string>
-    <string name="bienvenue_sur_sigmobile">Bienvenue sur sigMobile</string>
+    <string name="bienvenue_sur_sigmobile">
+        Vous disposez d’un abonnement SIGFOX et vous désirez accéder à vos données quelque soit le lieu ?
+        SigApp est faite pour vous !
+        Accédez aux données de votre balise SIGFOX depuis votre téléphone ou ordinateur en un simple clique.
+        Pour vous authentifier, veuillez remplir les champs suivants : </string>
     <string name="je_souhaite_tre_inform_par_mail">Je souhaite être informé par mail.</string>
     <string name="ok">Ok</string>
     <string name="choisissez_la_balise_g_rer">Choisissez la balise à gérer.</string>
@@ -35,4 +39,12 @@
     <string name="did">Id de la donnée</string>
     <string name="id1">id1</string>
     <string name="nsociete">Societe</string>
+
+    <string name="title_activity_info">Info</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="inforssi">RSSI : le Received Signal Strength Indication ou RSSI est une mesure de la puissance en réception d\'un signal reçu de l\’antenne  de la balise SIGFOX (classiquement un signal radio). Son utilité est de fournir une indication sur l\'intensité du signal reçu. Ainsi, le signal peut être mesuré en analogique ou en continu, par exemple à partir d\'une échelle 0/5 V (le niveau le plus élevé est 5 V, le plus bas est 0 V).Vous pouvez avoir accès depuis l\’application « xxx « aux mesures du RSSI prélevé par votre balise.GRAHIQUE RSSI :Le graphique RSSI résume l\’évolution du RSSI prévelé par votre balise durant les X jours/mois précedents.</string>
+    <string name="logo2">Logo</string>
+    <string name="mdp2">testé</string>
+    <string name="mdp3">test\"</string>
 </resources>

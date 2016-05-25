@@ -59,7 +59,7 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
 
         TextView droit = (TextView) findViewById(R.id.textBoard);
         assert droit != null;
-        droit.setText(Balise.droit);
+        droit.setText(String.format("Bienvenue sur l'interface de gestion de la %s. Vous en êtes %s.", Balise.balise, Balise.droit));
 
         createNotification("Probleme", "Ceci est un exemple de notification", "Alerte");
 
@@ -153,6 +153,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
             case R.id.msg:
                 Intent messages = new Intent(Board.this, Messages.class);
                 startActivity(messages);
+                finish();
+                break;
+            case R.id.info:
+                Intent info = new Intent(Board.this, Info.class);
+                startActivity(info);
                 finish();
                 break;
             case R.id.quit:

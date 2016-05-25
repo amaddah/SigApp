@@ -23,8 +23,7 @@ import sigmobile.sigapp.sigproc.Balise;
 public class Inscription extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private boolean withEmail = false; // Si l'utilisateur veut être contacté par mail
 
-    //static public String host = "93.113.206.146"; // Serveur internet amaddah.fr
-    static public String host = "192.168.0.37"; // serveur local
+    static public String host = "93.113.206.146"; // Serveur internet amaddah.fr à modifier
     static public int port = 5000;
     static public Server server = new Server(host, port);
     static public Client cl;

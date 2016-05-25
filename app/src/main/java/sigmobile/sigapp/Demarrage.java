@@ -23,6 +23,6 @@ public class Demarrage extends AppCompatActivity {
             }
         };
         // A modifier : 1 -> 5 sec
-        handle.postDelayed(delay,1000);
+        handle.postDelayed(delay,5000);
     }
 }
