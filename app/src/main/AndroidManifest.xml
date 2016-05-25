@@ -18,7 +18,6 @@
         <activity android:name=".Demarrage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -46,16 +45,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="sigmobile.sigapp.sigproc.Board" />
         </activity>
-        <activity
-            android:name=".sigproc.Info"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_info"
-            android:parentActivityName=".sigproc.Board"
-            android:theme="@style/FullscreenTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="sigmobile.sigapp.sigproc.Board" />
-        </activity>
+        <activity android:name=".sigproc.Info" android:parentActivityName=".sigproc.Board"></activity>
     </application>
 
 </manifest>

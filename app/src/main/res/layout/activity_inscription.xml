@@ -31,7 +31,7 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/email" android:hint="@string/email"
-        android:text="djalila.salemkour@insa-cvl.fr"
+        android:text="natael.mouleriche@insa-cvl.fr"
         android:layout_below="@+id/bienvenue"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -48,7 +48,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="@dimen/space"
-        android:text="@string/mdp1" />
+        android:text="@string/mdp2" />
 
     <Button
         android:layout_width="wrap_content"

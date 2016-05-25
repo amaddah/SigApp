@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +41,10 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         FloatingActionButton quit = (FloatingActionButton) findViewById(R.id.quit);
         assert quit != null;
         quit.setOnClickListener(this);
+
+        FloatingActionButton info = (FloatingActionButton) findViewById(R.id.info);
+        assert info != null;
+        info.setOnClickListener(this);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         LinearLayout l = (LinearLayout) findViewById(R.id.admin);
@@ -61,7 +66,7 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         assert droit != null;
         droit.setText(String.format("Bienvenue sur l'interface de gestion de la %s. Vous en êtes %s.", Balise.balise, Balise.droit));
 
-        createNotification("Probleme", "Ceci est un exemple de notification", "Alerte");
+        createNotification("Voltage trop important", "Le voltage de la balise a dépassé les 4V, veuillez s'il vous plait vérifier l'état de la balise.", "Alerte");
 
         String[] titles = {"Graphique du voltage de la balise.", "Graphique du signal de la balise."};
 
@@ -87,8 +92,8 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
         builder.setContentIntent(contentIntent)
-                //.setSmallIcon(R.drawable.sigfox)
-                //.setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.sigfox))
+                .setSmallIcon(R.drawable.logo)
+                .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.logo))
                 //.setWhen(System.currentTimeMillis())
                 .setAutoCancel(true)
                 //.setTicker(ticker)
@@ -158,7 +163,6 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
             case R.id.info:
                 Intent info = new Intent(Board.this, Info.class);
                 startActivity(info);
-                finish();
                 break;
             case R.id.quit:
                 Intent intent = new Intent(getApplicationContext(), Inscription.class);
