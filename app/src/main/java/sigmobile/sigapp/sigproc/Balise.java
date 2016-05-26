@@ -105,7 +105,14 @@ public class Balise extends Activity implements OnClickListener {
                                 String[] d = str[2].split(" ");
                                 String day = d[0];
                                 String hour = d[1];
-                                volts.add(i, Float.valueOf(str[0]));
+
+                                // ERRATUM formule de calcul : valeur * 3.3 / 1024
+                                Log.i("Hexa valeur", str[0]);
+                                int nb = Integer.parseInt(str[0].trim(), 16 );
+                                Log.i("Valeur decimal", "" + nb);
+                                Double dnb = Double.valueOf(nb);
+                                Log.i("Valeur double", "" + dnb);
+                                volts.add(i, Float.valueOf(String.valueOf(Math.floor(dnb * 3.3/1024))));
                                 rssis.add(i, Float.valueOf(str[1]));
                                 times.add(i, hour);
                                 ids.add(i, str[3]);
